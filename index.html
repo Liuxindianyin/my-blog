@@ -4,40 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的博客</title>
+    <title>个人博客</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>我的博客</h1>
-            <nav>
-                <a href="#home">首页</a>
-                <a href="#about">关于我</a>
-                <a href="#posts">文章</a>
-                <a href="#contact">联系我</a>
-            </nav>
+    <header class="header">
+        <div class="logo">
+            <a href="#home">个人博客</a>
         </div>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <nav class="nav">
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#posts">文章</a></li>
+                <li><a href="#algorithm">算法可视化</a></li>
+                <li><a href="#timeline">成长经历</a></li>
+                <li><a href="#contact">联系我</a></li>
+                <li><a href="#about">关于我</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- 英雄区 -->
     <section id="home" class="hero">
         <div class="container">
-            <h2>欢迎来到我的博客</h2>
-            <p>分享我的编程之旅和心得。</p>
-        </div>
-    </section>
-
-    <!-- 关于我 -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>关于我</h2>
-            <p>你好！我是一个热爱编程的开发者，喜欢在网上分享我的学习经验和项目心得。无论是前端开发，还是后端技术，我都充满了探索的热情。在这个博客中，我将记录我的编程之路，与大家分享我的学习笔记、项目经验以及技术思考。
-            </p>
-            <p>我专注于使用HTML、CSS和JavaScript进行前端开发，也有一定的后端经验，如Node.js和Python。通过这个博客，我希望能够帮助更多的初学者和开发者找到他们需要的信息，并在他们的编程旅程中取得进展。
-            </p>
-            <p>在业余时间，我喜欢阅读技术书籍、参加编程比赛，以及和志同道合的朋友一起讨论新技术。期待在这里与你们共同成长。</p>
+            <h2>欢迎来到我的个人博客</h2>
+            <p>探索编程的奥秘，分享我的学习和成长历程。</p>
+            <a href="#timeline" class="cta-button">查看我的成长经历</a>
         </div>
     </section>
 
@@ -47,29 +43,60 @@
             <h2>最新文章</h2>
             <article class="post">
                 <h3>如何搭建一个简单的博客</h3>
-                <p>在这篇文章中，我将分享如何使用HTML、CSS和JavaScript搭建一个简单而美观的个人博客页面。我们将探讨页面的布局、样式的美化以及如何在GitHub Pages上进行托管。</p>
+                <p>这篇文章详细介绍了如何使用HTML、CSS和JavaScript搭建一个个人博客...</p>
                 <p><strong>发布日期:</strong> 2024年8月15日</p>
             </article>
             <article class="post">
                 <h3>JavaScript基础入门</h3>
-                <p>这篇文章介绍了JavaScript的基本概念和使用方法，适合初学者学习。你将学到变量、函数、循环和事件处理等核心概念。</p>
+                <p>了解JavaScript的基本概念和常用方法，适合初学者学习...</p>
                 <p><strong>发布日期:</strong> 2024年8月10日</p>
             </article>
-            <article class="post">
-                <h3>CSS布局技巧</h3>
-                <p>了解如何使用CSS进行页面布局，包括Flexbox和Grid布局的基础知识，以及如何使页面在不同设备上都具有良好的响应式效果。</p>
-                <p><strong>发布日期:</strong> 2024年8月5日</p>
-            </article>
-            <article class="post">
-                <h3>从零开始学习React</h3>
-                <p>React是一个流行的JavaScript库，用于构建用户界面。在这篇文章中，我将介绍React的基础知识，并通过一个简单的示例项目来展示它的用法。</p>
-                <p><strong>发布日期:</strong> 2024年7月25日</p>
-            </article>
-            <article class="post">
-                <h3>为什么选择TypeScript？</h3>
-                <p>TypeScript是一种流行的JavaScript超集，它增加了静态类型检查的功能。在这篇文章中，我将讨论使用TypeScript的好处，并展示如何在项目中引入TypeScript。</p>
-                <p><strong>发布日期:</strong> 2024年7月10日</p>
-            </article>
+        </div>
+    </section>
+
+    <!-- 算法可视化部分 -->
+    <section id="algorithm" class="algorithm">
+        <div class="container">
+            <h2>算法可视化</h2>
+            <p>选择排序算法并输入一个数列来看它们如何工作。</p>
+            <input type="text" id="arrayInput" placeholder="输入数列，如 10, 3, 7, 4, 8" />
+            <button id="randomizeBtn">生成随机数组</button>
+            <select id="algorithmSelector">
+                <option value="bubbleSort">冒泡排序</option>
+                <option value="quickSort">快速排序</option>
+                <option value="mergeSort">归并排序</option>
+            </select>
+            <button onclick="startVisualization()">开始可视化</button>
+            <div id="visualization-container"></div>
+        </div>
+    </section>
+
+    <!-- 成长经历 -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2>我的成长经历</h2>
+            <div class="timeline-container">
+                <div class="timeline-item" data-year="2023.8">
+                    <h4>开始医学专业</h4>
+                    <p>在武汉大学开始攻读医学专业，并对计算机科学产生浓厚兴趣。</p>
+                </div>
+                <div class="timeline-item" data-year="2023.11">
+                    <h4>数学竞赛三等奖</h4>
+                    <p>在学习高数两个月后，抱着试一试的态度参加了大学生数学竞赛，获得了三等奖。</p>
+                </div>
+                <div class="timeline-item" data-year="2024.4">
+                    <h4>华中杯数学建模大赛</h4>
+                    <p>参加华中杯数学建模大赛，准备时间不长，最终拿到一个入门奖。</p>
+                </div>
+                <div class="timeline-item" data-year="2024.7">
+                    <h4>亚太杯中文赛区数模比赛</h4>
+                    <p>参加了亚太杯中文赛区数模比赛。</p>
+                </div>
+                <div class="timeline-item" data-year="2024.8">
+                    <h4>学习网站开发</h4>
+                    <p>开始学习搭建网站，先后学习了html，css，js以及vue。</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -77,19 +104,24 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2>联系我</h2>
-            <p>如果你有任何问题或建议，欢迎通过以下方式与我联系：</p>
+            <p>通过以下方式与我联系：</p>
             <ul>
-                <li>Email: ytzheng81@gmail.com</li>
-                <li>GitHub: <a href="https://github.com/Liuxindianyin" target="_blank">yourusername</a></li>
+                <li>Email: example@email.com</li>
+                <li>LinkedIn: <a href="https://www.linkedin.com">我的LinkedIn</a></li>
             </ul>
         </div>
     </section>
 
-    <footer>
+    <!-- 关于我 -->
+    <section id="about" class="about">
         <div class="container">
-            <p>&copy; 2024 我的博客 | 由我设计和开发</p>
+            <h2>关于我</h2>
+            <p>我是武汉大学的一名医学生，同时也是一名对编程与医学交叉领域充满热情的学习者。我热衷于探索如何利用编程和数据分析来改进医学研究和临床实践。</p>
         </div>
-    </footer>
+    </section>
+
+    <!-- 引入 JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
