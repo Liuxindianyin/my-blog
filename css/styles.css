@@ -1,4 +1,4 @@
-/* styles.css */
+/* 全局样式 */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -12,111 +12,438 @@ body {
     width: 80%;
     margin: auto;
     overflow: hidden;
+    padding: 20px;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #77b300 3px solid;
+/* 头部样式 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #0d0d0d, #2a2a2a);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
 }
 
-header a {
-    color: #fff;
+.logo a {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffffff;
     text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-    margin: 0 15px;
+    transition: color 0.3s ease;
 }
 
-header nav {
-    float: right;
-    margin-top: 10px;
+.logo a:hover {
+    color: #03dac5;
 }
 
-header h1 {
-    float: left;
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    display: block;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
     margin: 0;
-    font-size: 24px;
 }
 
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: #f0f0f0;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #03dac5;
+    color: #000000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #03dac5;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* 英雄区样式 */
 .hero {
     background: url('../img/hero-bg.jpg') no-repeat center center/cover;
     color: #fff;
     height: 400px;
     text-align: center;
     padding-top: 100px;
+    position: relative;
 }
 
 .hero h2 {
-    font-size: 50px;
+    font-size: 3em;
     margin-bottom: 10px;
 }
 
-.about,
-.posts,
-.contact {
-    padding: 20px 0;
-    background: #fff;
-    margin: 20px 0;
+.hero p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #03dac5;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: bold;
     border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.about h2,
-.posts h2,
-.contact h2 {
-    margin-bottom: 20px;
+.cta-button:hover {
+    background-color: #02c2a4;
+    transform: scale(1.1);
 }
 
-.about p {
-    margin-bottom: 15px;
-    font-size: 18px;
+/* 文章部分样式 */
+.posts {
+    padding: 40px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.posts h2 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
 }
 
 .post {
     background: #f4f4f4;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .post h3 {
     margin-top: 0;
+    font-size: 1.8em;
 }
 
 .post p {
     margin-bottom: 10px;
+    font-size: 1em;
 }
 
-footer {
-    background: #333;
-    color: #fff;
+/* 算法可视化部分样式 */
+.algorithm {
+    padding: 40px 0;
+    background-color: #333;
+    color: #ffffff;
+    border-radius: 8px;
+    margin: 20px 0;
     text-align: center;
-    padding: 10px 0;
+}
+
+.algorithm h2 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.algorithm p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.algorithm button {
+    background-color: #03dac5;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.algorithm button:hover {
+    background-color: #02c2a4;
+    transform: scale(1.05);
+}
+
+#visualization-container {
     margin-top: 20px;
+    min-height: 200px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #444;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
 }
 
-footer a {
-    color: #77b300;
-    text-decoration: none;
+.bar {
+    width: 10px;
+    background-color: #03dac5;
+    margin: 0 2px;
+    display: inline-block;
+    vertical-align: bottom;
+    transition: height 0.3s ease;
 }
 
-ul {
+/* 成长经历部分样式 */
+.timeline {
+    padding: 40px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timeline h2 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.timeline-item {
+    padding: 20px;
+    border-left: 2px solid #03dac5;
+    margin-bottom: 20px;
+    position: relative;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    left: -120px;
+    top: 20px;
+    background: #6200ea;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.timeline-item h4 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.timeline-item p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* 联系我部分样式 */
+/* 联系我部分样式 */
+.contact {
+    padding: 40px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact h2 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.contact p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.contact ul {
     list-style: none;
     padding: 0;
+    font-size: 1.2em;
 }
 
-ul li {
-    font-size: 18px;
+.contact ul li {
     margin-bottom: 10px;
 }
 
-ul li a {
-    color: #77b300;
+.contact ul li a {
+    color: #6200ea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact ul li a:hover {
+    color: #03dac5;
+}
+
+/* 关于我部分样式 */
+.about {
+    padding: 40px 0;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.about p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* 页脚样式 */
+footer {
+    background: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+footer a {
+    color: #03dac5;
     text-decoration: none;
 }
 
-ul li a:hover {
+footer a:hover {
     text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+
+    .container,
+    .header {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 10px;
+        font-size: 1.2em;
+        /* Reduce font size for smaller screens */
+    }
+
+    .hero h2 {
+        font-size: 2em;
+        /* Smaller hero text on mobile */
+    }
+
+    .hero {
+        padding-top: 50px;
+        /* Less padding on mobile */
+        height: 300px;
+        /* Shorter hero section on mobile */
+    }
+
+    .timeline-item::before {
+        left: -80px;
+        font-size: 0.8em;
+    }
+
+    .about p {
+        font-size: 1em;
+        padding: 0 10px;
+    }
+
+    #visualization-container {
+        flex-direction: column;
+        height: 300px;
+    }
+
+    .bar {
+        width: 5px;
+        /* Narrower bars for mobile */
+    }
 }
